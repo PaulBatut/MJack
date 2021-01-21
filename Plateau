@@ -1,0 +1,236 @@
+import javax.swing.*;
+import java.awt.*;
+import java.awt.event.ActionEvent;
+import java.awt.event.ActionListener;
+public class Plateau extends JPanel{
+
+    public Plateau(){
+        super(new BorderLayout());
+        this.tuiles();
+        this.alibis();
+    }
+    // Tuiles
+     public void tuiles(){
+         // Boutons Tuiles avec image :
+         JButton rose = new JButton();
+         rose.setIcon(new ImageIcon("/Users/chloemassaad/Desktop/Java_Images/Tuile_Rose.png")); //affiche une image
+
+         JButton blanc = new JButton();
+         blanc.setIcon(new ImageIcon("/Users/chloemassaad/Desktop/Java_Images/Tuile_Blanc.png"));
+
+         JButton bleu = new JButton();
+         bleu.setIcon(new ImageIcon("/Users/chloemassaad/Desktop/Java_Images/Tuile_Bleu.png"));
+
+         JButton jaune = new JButton();
+         jaune.setIcon(new ImageIcon("/Users/chloemassaad/Desktop/Java_Images/Tuile_jaune.png"));
+
+         JButton mr = new JButton();
+         mr.setIcon(new ImageIcon("/Users/chloemassaad/Desktop/Java_Images/Tuile_Mr.png"));
+
+         JButton noir = new JButton();
+         noir.setIcon(new ImageIcon("/Users/chloemassaad/Desktop/Java_Images/Tuile_Noir.png"));
+
+         JButton orange = new JButton();
+         orange.setIcon(new ImageIcon("/Users/chloemassaad/Desktop/Java_Images/Tuile_Orange.png"));
+
+         JButton vert = new JButton();
+         vert.setIcon(new ImageIcon("/Users/chloemassaad/Desktop/Java_Images/Tuile_Vert.png"));
+
+         JButton violet = new JButton();
+         violet.setIcon(new ImageIcon("/Users/chloemassaad/Desktop/Java_Images/Tuile_Violet.png"));
+        //icone
+
+         // Changer de face en cliquant :
+         rose.addActionListener(new ActionListener() {
+
+           @Override
+           public void actionPerformed(ActionEvent e) {
+
+              rose.setIcon(new ImageIcon("/Users/chloemassaad/Desktop/Java_Images/Tuile_Nue.png")); // clic et ca apparait
+           }
+       });
+         blanc.addActionListener(new ActionListener() {
+
+             @Override
+             public void actionPerformed(ActionEvent e) {
+
+                 blanc.setIcon(new ImageIcon("/Users/chloemassaad/Desktop/Java_Images/Tuile_Nue.png")); // clic et ca apparait
+             }
+         });
+         bleu.addActionListener(new ActionListener() {
+
+             @Override
+             public void actionPerformed(ActionEvent e) {
+
+                 bleu.setIcon(new ImageIcon("/Users/chloemassaad/Desktop/Java_Images/Tuile_Nue.png")); // clic et ca apparait
+             }
+         });
+         jaune.addActionListener(new ActionListener() {
+
+             @Override
+             public void actionPerformed(ActionEvent e) {
+
+                 jaune.setIcon(new ImageIcon("/Users/chloemassaad/Desktop/Java_Images/Tuile_Nue.png")); // clic et ca apparait
+             }
+         });
+         mr.addActionListener(new ActionListener() {
+
+             @Override
+             public void actionPerformed(ActionEvent e) {
+
+                mr.setIcon(new ImageIcon("/Users/chloemassaad/Desktop/Java_Images/Tuile_Croisee.png")); // clic et ca apparait
+             }
+         });
+         noir.addActionListener(new ActionListener() {
+
+             @Override
+             public void actionPerformed(ActionEvent e) {
+
+                 noir.setIcon(new ImageIcon("/Users/chloemassaad/Desktop/Java_Images/Tuile_Nue.png")); // clic et ca apparait
+             }
+         });
+         orange.addActionListener(new ActionListener() {
+
+             @Override
+             public void actionPerformed(ActionEvent e) {
+
+                 orange.setIcon(new ImageIcon("/Users/chloemassaad/Desktop/Java_Images/Tuile_Nue.png")); // clic et ca apparait
+             }
+         });
+         vert.addActionListener(new ActionListener() {
+
+             @Override
+             public void actionPerformed(ActionEvent e) {
+
+                 vert.setIcon(new ImageIcon("/Users/chloemassaad/Desktop/Java_Images/Tuile_Nue.png")); // clic et ca apparait
+             }
+         });
+         violet.addActionListener(new ActionListener() {
+
+             @Override
+             public void actionPerformed(ActionEvent e) {
+
+                 violet.setIcon(new ImageIcon("/Users/chloemassaad/Desktop/Java_Images/Tuile_Nue.png")); // clic et ca apparait
+             }
+         });
+
+         JPanel pan2 = new JPanel((new GridLayout(3, 3, 0, 0)));
+         pan2.add(rose);
+         pan2.add(blanc);
+         pan2.add(bleu);
+         pan2.add(jaune);
+         pan2.add(mr);
+         pan2.add(noir);
+         pan2.add(orange);
+         pan2.add(vert);
+         pan2.add(violet);
+         this.add(pan2, BorderLayout.CENTER);
+
+    }
+
+    // Jetons Temps
+    public void alibis(){
+        JButton alibirose = new JButton();
+        alibirose.setIcon(new ImageIcon("/Users/chloemassaad/Desktop/MrJackPocket/alibis/alibi-card.png")); //affiche une image
+
+        JButton alibiblanc = new JButton();
+        alibiblanc.setIcon(new ImageIcon("/Users/chloemassaad/Desktop/MrJackPocket/alibis/alibi-card.png"));
+
+        JButton alibibleu = new JButton();
+        alibibleu.setIcon(new ImageIcon("/Users/chloemassaad/Desktop/MrJackPocket/alibis/alibi-card.png"));
+
+        JButton alibijaune = new JButton();
+        alibijaune.setIcon(new ImageIcon("/Users/chloemassaad/Desktop/MrJackPocket/alibis/alibi-card.png"));
+
+        JButton alibimr = new JButton();
+        alibimr.setIcon(new ImageIcon("/Users/chloemassaad/Desktop/MrJackPocket/alibis/alibi-card.png"));
+
+        JButton alibinoir = new JButton();
+        alibinoir.setIcon(new ImageIcon("/Users/chloemassaad/Desktop/MrJackPocket/alibis/alibi-card.png"));
+
+        JButton alibiorange = new JButton();
+        alibiorange.setIcon(new ImageIcon("/Users/chloemassaad/Desktop/MrJackPocket/alibis/alibi-card.png"));
+
+        JButton alibivert = new JButton();
+        alibivert.setIcon(new ImageIcon("/Users/chloemassaad/Desktop/MrJackPocket/alibis/alibi-card.png"));
+
+        JButton alibiviolet = new JButton();
+        alibiviolet.setIcon(new ImageIcon("/Users/chloemassaad/Desktop/MrJackPocket/alibis/alibi-card.png"));
+
+
+        alibirose.addActionListener(new ActionListener() {
+
+            @Override
+            public void actionPerformed(ActionEvent e) {
+
+                alibirose.setIcon(new ImageIcon("/Users/chloemassaad/Desktop/MrJackPocket/alibis")); // clic et ca apparait
+            }
+        });
+        alibiblanc.addActionListener(new ActionListener() {
+
+            @Override
+            public void actionPerformed(ActionEvent e) {
+
+                alibiblanc.setIcon(new ImageIcon("/Users/chloemassaad/Desktop/MrJackPocket/alibis")); // clic et ca apparait
+            }
+        });
+        alibibleu.addActionListener(new ActionListener() {
+
+            @Override
+            public void actionPerformed(ActionEvent e) {
+
+                alibibleu.setIcon(new ImageIcon("/Users/chloemassaad/Desktop/MrJackPocket/alibis/InspLestrade-alibi.png")); // clic et ca apparait
+            }
+        });
+        alibijaune.addActionListener(new ActionListener() {
+
+            @Override
+            public void actionPerformed(ActionEvent e) {
+
+                alibijaune.setIcon(new ImageIcon("/Users/chloemassaad/Desktop/MrJackPocket/alibis")); // clic et ca apparait
+            }
+        });
+        alibimr.addActionListener(new ActionListener() {
+
+            @Override
+            public void actionPerformed(ActionEvent e) {
+
+                alibimr.setIcon(new ImageIcon("/Users/chloemassaad/Desktop/MrJackPocket/alibis")); // clic et ca apparait
+            }
+        });
+        alibinoir.addActionListener(new ActionListener() {
+
+            @Override
+            public void actionPerformed(ActionEvent e) {
+
+                alibinoir.setIcon(new ImageIcon("/Users/chloemassaad/Desktop/MrJackPocket/alibis")); // clic et ca apparait
+            }
+        });
+        alibiorange.addActionListener(new ActionListener() {
+
+            @Override
+            public void actionPerformed(ActionEvent e) {
+
+                alibiorange.setIcon(new ImageIcon("/Users/chloemassaad/Desktop/MrJackPocket/alibis/JeremyBert-alibi.png")); // clic et ca apparait
+            }
+        });
+        alibivert.addActionListener(new ActionListener() {
+
+            @Override
+            public void actionPerformed(ActionEvent e) {
+
+                alibivert.setIcon(new ImageIcon("/Users/chloemassaad/Desktop/MrJackPocket/alibis")); // clic et ca apparait
+            }
+        });
+        alibiviolet.addActionListener(new ActionListener() {
+
+            @Override
+            public void actionPerformed(ActionEvent e) {
+
+                alibiviolet.setIcon(new ImageIcon("/Users/chloemassaad/Desktop/MrJackPocket/alibis")); // clic et ca apparait
+            }
+        });
+    }
+
+}
+
