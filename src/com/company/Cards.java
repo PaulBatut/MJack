@@ -1,7 +1,7 @@
 package com.company;
-
-//public enum Card {
-/*    PINK,
+import java.util.Random;
+public enum Cards {
+    PINK,
     BLACK,
     ORANGE,
     PURPLE,
@@ -9,10 +9,12 @@ package com.company;
     YELLOW,
     BLUE,
     WHITE,
-    GREY,
+    GREY;
 
     public int getSablier(){
         int[] Sablier = {2,0,1,1,1,1,0,1,1};
         return Sablier[this.ordinal()];
-    }*/
-//}
+    }
+
+
+}
