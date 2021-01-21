@@ -1,0 +1,21 @@
+import java.awt.*;
+import java.util.ArrayList;
+import java.util.List;
+import java.util.Set;
+import java.util.Arrays;
+import java.util.HashSet;
+
+
+public class Test {
+    public static void main(String[] args) {
+
+        MonJeu jeu = new MonJeu();
+        jeu.setSize(675,675); // Taille de la fenetre
+        jeu.initGame();
+        jeu.setVisible(true);
+
+       // jeu.rotateTile(5);
+
+
+    }
+}
