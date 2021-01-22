@@ -1,0 +1,21 @@
+import javax.swing.*;
+
+
+public class MonJeu extends JFrame{
+    public MonJeu() {
+        super("Mon Jeu");
+
+    }
+    public void initGame(){
+        Plateau pan = new Plateau();
+        this.setContentPane(pan);
+        pan.tuiles();
+        pan.alibis();
+
+    }
+    public void rotateTile(int n){
+        // Tourner de 90° la tile n
+
+    }
+}
+ 
