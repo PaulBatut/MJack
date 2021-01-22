@@ -29,7 +29,7 @@ public class Start {
             System.out.printf("[%s, %d, %s]",cartes.get(i).color, cartes.get(i).hourglassNumber, cartes.get(i).isCulprit);
         }
 
-        int numeroTour = 0;
+        int numeroTour = 1;
 
         Collections.shuffle(district);//permet de mélanger nameDistrict pour avoir une nouvelle expérience à chaque partie.
         Tiles tileSherlock = new Tiles(district.get(0).getColor(), 1);
@@ -40,10 +40,10 @@ public class Start {
         district.set(7, tileToby);
 
         //on set les tiles en face des détectives de sorte à ce qu'ils aient un mur en face
-
-        Detective sherlock = new Detective( 0); //on initialise la position de sherlock, instance de détective. On fait de meme pour watson et toby
-        Detective watson = new Detective( 4);
-        Detective toby = new Detective( 8);
+        ArrayList<Detective> detectives = new ArrayList<>();
+        detectives.add(new Detective("Sherlock", 0));  //on initialise la position de sherlock, instance de détective. On fait de meme pour watson et toby
+        detectives.add(new Detective( "Watson", 4));
+        detectives.add(new Detective( "Toby", 8));
 
         ArrayList<Jeton> jet = new ArrayList<>();
         jet.add(new Jeton("Alibi", "Sherlock"));
@@ -54,6 +54,7 @@ public class Start {
         for (Tiles tiles : district) {
             System.out.println("");
             System.out.printf("[%s, %d]", tiles.color, tiles.orientation);
+            System.out.println("");
         }
         for(int j = 0; j<8; j++){
             ArrayList<String> possibilitesJeton = new ArrayList<>();
@@ -61,6 +62,7 @@ public class Start {
             possibilitesJeton.add("empty");
             possibilitesJeton.add("empty");
             possibilitesJeton.add("empty");
+            int numeroPris=0; //combientième jeton pioché
             for (int k = 0; k<10; k++){
 
                 int faceJet1 = r.nextInt(2);
@@ -74,6 +76,7 @@ public class Start {
                     possibilitesJeton.set(1,"empty");
                     possibilitesJeton.set(2,"empty");
                     possibilitesJeton.set(3,"empty");
+                    numeroTour+=1;
                 }
                 if (possibilitesJeton.get(0)!="Pris"){
                     if (faceJet1 == 0){
@@ -109,15 +112,20 @@ public class Start {
                 }
 
                 System.out.println(possibilitesJeton);
+                for (int i=0; i<=2; i++){
+                    System.out.printf("Position de %s : %d \n", detectives.get(i).name,detectives.get(i).position);
+                }
+
                 System.out.println("Choisissez un jeton (0,1,2, ou 3)");
-                int numeroJeton = scanner.nextInt();
+                int numeroJeton = Integer.parseInt(scanner.nextLine());
                 while (possibilitesJeton.get(numeroJeton)=="Pris"){
                     System.out.println("Ce jeton est déjà pris, veuillez prendre autre chose");
                     System.out.println(possibilitesJeton);
                     System.out.println("Choisissez un jeton (0,1,2, ou 3)");
-                    numeroJeton = scanner.nextInt();
+                    numeroJeton = Integer.parseInt(scanner.nextLine());
                 }
-                System.out.println(Jeton.executionAction(possibilitesJeton.get(numeroJeton)));
+                System.out.println(Jeton.executionAction(possibilitesJeton.get(numeroJeton), detectives, cartes, district, numeroTour, numeroPris));
+                numeroPris+=1;
                 possibilitesJeton.set(numeroJeton, "Pris");
             }
         }
