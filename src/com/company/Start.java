@@ -54,11 +54,11 @@ public class Start {
 
          //on set les tiles en face des détectives de sorte à ce qu'ils aient un mur en face
 
-        Detective sherlock = new Detective("Sherlock", 0); //on initialise l'objet sherlock, instance de détective. On fait de meme pour watson et toby
+        Detective [0] = new Detective("Sherlock", 0); //on initialise l'objet sherlock, instance de détective. On fait de meme pour watson et toby
 
-        Detective watson = new Detective("Watson", 4);
+        Detective [1] = new Detective("Watson", 4);
 
-        Detective toby = new Detective("Toby", 8);
+        Detective [2] = new Detective("Toby", 8);
 
         Jeton jeton1 = new Jeton("Alibi", "Sherlock");
         Jeton jeton2 = new Jeton("Toby", "Watson");
