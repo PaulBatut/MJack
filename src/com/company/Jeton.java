@@ -1,9 +1,12 @@
 package com.company;
 
+
+import java.util.Scanner;
+
 public class Jeton {
     String recto;
     String verso;
-    boolean isAvailable=true;
+    Scanner scanner = new Scanner(System.in);
 
     public String getRecto() {
         return recto;
@@ -31,6 +34,8 @@ public class Jeton {
             case "Alibi":
                 return "Vous avez choisi l'option Alibi";
             case "Sherlock":
+                int avanceCases = Action.moveSherlock();
+                System.out.println(avanceCases);
                 return "Vous avez choisi l'option Sherlock";
             case "Toby":
                 return "Vous avez choisi l'option Toby";

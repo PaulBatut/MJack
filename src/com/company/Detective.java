@@ -1,14 +1,19 @@
 package com.company;
 
 public class Detective {
-    public String nom;
     public int position;
-    Detective(String nom, int position){
-        this.nom = nom;
+    Detective(int position){
         this.position = position;
 
     }
 
+    public void setPosition(int position) {
+        this.position = position;
+    }
+
+    public int getPosition() {
+        return position;
+    }
 
     public void newPosition(int avanceDeCase) {
         for(int i=0; i<avanceDeCase; i++){

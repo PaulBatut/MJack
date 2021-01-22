@@ -1,5 +1,9 @@
 package com.company;
+import java.util.ArrayList;
+import java.util.Collections;
 import java.util.Random;
+import java.util.Scanner;
+
 public class Tiles {
     int orientation;
     boolean recto = true;
@@ -14,8 +18,6 @@ public class Tiles {
     public int getOrientation() {
         return orientation;
     }
-
-
     public boolean isRecto() {
         return recto;
     }
@@ -26,7 +28,5 @@ public class Tiles {
     public String getColor() {
         return color;
     }
-
-
 
 }

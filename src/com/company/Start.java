@@ -1,49 +1,36 @@
 package com.company;
 
 import javax.print.attribute.standard.MediaSize;
-import java.util.ArrayList;
-import java.util.Collection;
-import java.util.Collections;
-import java.util.Random;
-import java.util.Scanner;
+import java.util.*;
 
 public class Start {
     public static void main(String[] args) {
         Random r = new Random();
         Scanner scanner = new Scanner(System.in);
+
         int max = 4;
-        int pinkOr= r.nextInt(max);
-        int blackOr= r.nextInt(max);
-        int orangeOr= r.nextInt(max);
-        int purpleOr= r.nextInt(max);
-        int greenOr= r.nextInt(max);
-        int yellowOr= r.nextInt(max);
-        int blueOr= r.nextInt(max);
-        int whiteOr= r.nextInt(max);
-        int greyOr= r.nextInt(max);
+        ArrayList<Tiles> district = new ArrayList<>(); //on utilise une arraylist de la classe Tiles pour avoir les noms de districts au même endroit.
+        ArrayList<Alibi> cartes = new ArrayList<>(); //on utilise une arraylist de la classe Alibi pour avoir toutes les cartes alibi au meme endroit
+        List<String> couleurs = List.of("Pink", "Black", "Orange", "Purple", "Green", "Yellow", "Blue", "White", "Grey");
+        List<Integer> sabliers = List.of(2,0,1,1,1,1,0,1,1);
+
+        for (int i = 0; i<9; i++){
+            int orientation= r.nextInt(max);
+            Tiles tile = new Tiles(couleurs.get(i),orientation);
+            Alibi alibi = new Alibi(false, sabliers.get(i), couleurs.get(i) );
+            district.add(tile);
+            cartes.add(alibi);
+        }
+        Collections.shuffle(cartes);
+
+        Alibi carteMrJack = new Alibi(true,cartes.get(0).hourglassNumber, cartes.get(0).color);
+        cartes.set(0,carteMrJack);
+        for (int i = 0; i< sabliers.size(); i++){
+            System.out.printf("[%s, %d, %s]",cartes.get(i).color, cartes.get(i).hourglassNumber, cartes.get(i).isCulprit);
+        }
 
         int numeroTour = 0;
 
-        Tiles pink = new Tiles("Pink", pinkOr);
-        Tiles black = new Tiles("Black", blackOr);
-        Tiles orange = new Tiles("Orange", orangeOr);
-        Tiles purple = new Tiles("Purple", purpleOr);
-        Tiles green = new Tiles("Green", greenOr);
-        Tiles yellow = new Tiles("Yellow", yellowOr);
-        Tiles blue = new Tiles("Blue", blueOr);
-        Tiles white = new Tiles("White", whiteOr);
-        Tiles grey = new Tiles("Grey", greyOr);
-
-        ArrayList<Tiles> district = new ArrayList<>(); //on utilise une arraylist de la classe Tiles pour avoir les noms de districts au même endroit.
-        district.add(pink);
-        district.add(black);
-        district.add(orange);
-        district.add(purple);
-        district.add(green);
-        district.add(yellow);
-        district.add(blue);
-        district.add(white);
-        district.add(grey);
         Collections.shuffle(district);//permet de mélanger nameDistrict pour avoir une nouvelle expérience à chaque partie.
         Tiles tileSherlock = new Tiles(district.get(0).getColor(), 1);
         Tiles tileWatson = new Tiles(district.get(2).getColor(), 3);
@@ -52,28 +39,21 @@ public class Start {
         district.set(2, tileWatson);
         district.set(7, tileToby);
 
-         //on set les tiles en face des détectives de sorte à ce qu'ils aient un mur en face
+        //on set les tiles en face des détectives de sorte à ce qu'ils aient un mur en face
 
-        Detective sherlock = new Detective("Sherlock", 0); //on initialise l'objet sherlock, instance de détective. On fait de meme pour watson et toby
-
-        Detective watson = new Detective("Watson", 4);
-
-        Detective toby = new Detective("Toby", 8);
-
-        Jeton jeton1 = new Jeton("Alibi", "Sherlock");
-        Jeton jeton2 = new Jeton("Toby", "Watson");
-        Jeton jeton3 = new Jeton("Rotation", "Echange");
-        Jeton jeton4 = new Jeton("Rotation", "Joker");
+        Detective sherlock = new Detective( 0); //on initialise la position de sherlock, instance de détective. On fait de meme pour watson et toby
+        Detective watson = new Detective( 4);
+        Detective toby = new Detective( 8);
 
         ArrayList<Jeton> jet = new ArrayList<>();
-        jet.add(jeton1);
-        jet.add(jeton2);
-        jet.add(jeton3);
-        jet.add(jeton4);
+        jet.add(new Jeton("Alibi", "Sherlock"));
+        jet.add(new Jeton("Toby", "Watson"));
+        jet.add(new Jeton("Rotation", "Echange"));
+        jet.add(new Jeton("Rotation", "Joker"));
 
-        for (int i=0; i<district.size(); i++){
-            System.out.println(district.get(i).getColor());
-            System.out.println(district.get(i).getOrientation());
+        for (Tiles tiles : district) {
+            System.out.println("");
+            System.out.printf("[%s, %d]", tiles.color, tiles.orientation);
         }
         for(int j = 0; j<8; j++){
             ArrayList<String> possibilitesJeton = new ArrayList<>();

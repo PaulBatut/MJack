@@ -2,15 +2,27 @@ package com.company;
 import java.util.Scanner;
 
 public class Action {
-   /* Scanner scanner = new Scanner(System.in);
-    public void moveSherlock(){
+
+    public static int moveSherlock(){
+        Scanner scanner = new Scanner(System.in);
         System.out.println("Voulez vous avancer de 1 ou 2 cases?");
-        String casesAvance = scanner.nextLine();// le joueur choisir le nombre de cases à avancer le jeton Sherlock
-        if (casesAvance=="1"||casesAvance=="2"){
-            if (casesAvance=="1"){
-                if()
-            }
+        int casesAvance = scanner.nextInt();// le joueur choisir le nombre de cases à avancer le jeton Sherlock
+        while (casesAvance<1||casesAvance>3){
+            casesAvance = scanner.nextInt();
         }
+        scanner.close();
+        if (casesAvance == 1){
+            System.out.println("Vous avancez de 1 case");
+            return casesAvance;
+        }
+        if (casesAvance == 2){
+            System.out.println("Vous avancez de 2 cases");
+            return casesAvance;
+        }
+        else {
+            System.out.println("ca marche pas tocard");
+        }
+        return 0;
     }
     public void moveWatson(){
 
@@ -26,6 +38,6 @@ public class Action {
     }
     public void echange(){
 
-    }*/
+    }
 
 }
