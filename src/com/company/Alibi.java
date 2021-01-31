@@ -35,7 +35,4 @@ public class Alibi {
         this.hourglassNumber = hourglassNumber;
         this.color = color;
     }
-
-
-
 }

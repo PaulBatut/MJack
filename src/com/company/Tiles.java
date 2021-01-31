@@ -6,11 +6,14 @@ import java.util.Scanner;
 
 public class Tiles {
     int orientation;
-    boolean recto = true;
+    boolean recto;
     String color;
-    public Tiles(String color, int orientation){
+    boolean isSus;
+    public Tiles(String color, int orientation, boolean recto, boolean isSus){
         this.color = color;
         this.orientation = orientation;
+        this.recto= recto;
+        this.isSus= isSus;
     }
     public void setOrientation(int orientation) {
         this.orientation = orientation;
@@ -29,4 +32,10 @@ public class Tiles {
         return color;
     }
 
+    public boolean isSus() {
+        return isSus;
+    }
+    public void setSus(boolean sus) {
+        isSus = sus;
+    }
 }
